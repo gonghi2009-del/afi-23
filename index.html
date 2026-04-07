@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arifiniafacturaweb con amor - Blog del Carnaval de Barranquilla</title>
+    <title>Recibos Caribe Col Web - Blog del Carnaval de Barranquilla</title>
 
-    
     <meta name="description" content="Blog informativo sobre la historia, danzas y cultura del Carnaval de Barranquilla, Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
- 
-
     <style>
-
-       
-        
         :root {
-            --primary-color: #8E1600; /* Rojo profundo editorial */
-            --secondary-color: #D4AF37; /* Dorado cálido */
+            --primary-color: #8E1600;
+            --secondary-color: #D4AF37;
             --text-dark: #2C3E50;
             --text-light: #5A6A7D;
             --bg-color: #F8F9FA;
@@ -197,7 +191,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- Historia Section (Layout Dividido) --- */
+        /* --- Historia Section --- */
         .split-layout {
             display: flex;
             align-items: center;
@@ -267,7 +261,7 @@
             background-color: #6a1000;
         }
 
-        /* --- Footer y Legales --- */
+        /* --- Footer --- */
         footer {
             background-color: var(--text-dark);
             color: var(--white);
@@ -301,41 +295,10 @@
             margin-top: 20px;
         }
 
-        /* --- Modales para Políticas (Políticas de Google Ads) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: var(--white);
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 40px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-
         /* --- Responsive --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* En un entorno real se implementaría un menú hamburguesa */
+                display: none;
             }
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -350,12 +313,9 @@
     </style>
 </head>
 <body>
-<div id="preloader">
-    <div class="spinner"></div>
-</div>  
     <header id="header">
         <div class="nav-container">
-            <div class="logo">arifiniafacturaweb con amor</div>
+            <div class="logo">Recibos Caribe Col Web</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#historia">Historia</a></li>
@@ -421,18 +381,19 @@
             <h2 class="section-title">Información y Contacto Editorial</h2>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>Contacte a nuestra redacción</h3>
-                    <p>Para consultas sobre colaboraciones, derechos de reproducción de artículos fotográficos o información institucional, no dude en comunicarse con nosotros. Nuestro equipo editorial responderá a la brevedad.</p>
+                    <h3>Identidad del Anunciante / Responsable</h3>
+                    <p>Este sitio opera como un portal estrictamente informativo y cultural sobre las tradiciones de la región Caribe. Para consultas institucionales, colaboraciones o soporte, contáctenos mediante los siguientes canales verificados:</p>
                     <br>
-                    <p><strong>Dirección Legal:</strong> Calle 72 # 54-22, Edificio Empresarial, Barranquilla, Colombia.</p>
-                    <p><strong>Teléfono de Atención:</strong> +57 (605) 555-0198</p>
-                    <p><strong>Correo Electrónico:</strong> redaccion@arifiniafacturaweb.com</p>
-                    <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 5:00 PM (COT)</p>
+                    <p><strong>Responsable:</strong> MAGNOLIA ROCELIS MATILLEZ LLORIS</p>
+                    <p><strong>Dirección Física:</strong> Diagonal 98a Sur #7, Bogotá, 110541, Colombia.</p>
+                    <p><strong>Correo Electrónico:</strong> gonghi2009@gmail.com</p>
+                    <p><strong>Sitio Web Oficial:</strong> https://www.reciboscaribecolweb.com/</p>
+                    <p><strong>ID de Publicidad (Google Ads):</strong> 850-909-2150</p>
                 </div>
                 <div>
                     <form class="contact-form" id="contactForm">
                         <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Correo electrónico corporativo o personal" required>
+                        <input type="email" placeholder="Correo electrónico de contacto" required>
                         <input type="text" placeholder="Asunto de la consulta" required>
                         <textarea rows="5" placeholder="Redacte su mensaje detalladamente..." required></textarea>
                         <button type="submit">Enviar Mensaje</button>
@@ -444,43 +405,14 @@
 
     <footer>
         <div class="footer-links">
-            <a onclick="openModal('privacyModal')">Políticas de Privacidad</a>
-            <a onclick="openModal('termsModal')">Términos y Condiciones</a>
+            <a href="politica-de-privacidad.html">Políticas de Privacidad</a>
+            <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
             <a href="#contacto">Contacto Legal</a>
         </div>
         <div class="copyright">
-            &copy; 2026 arifiniafacturaweb con amor. Todos los derechos reservados. Blog estrictamente informativo.
+            &copy; 2026 Operado y administrado por MAGNOLIA ROCELIS MATILLEZ LLORIS. Todos los derechos reservados. Portal estrictamente informativo.
         </div>
     </footer>
-
-    <div class="modal" id="privacyModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Política de Privacidad</h2>
-            <p><strong>Última actualización: Marzo 2026</strong></p>
-            <br>
-            <p>En "arifiniafacturaweb con amor", respetamos y protegemos su privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos y compartimos su información personal cuando visita nuestro blog informativo.</p>
-            <br>
-            <p><strong>1. Recopilación de Información:</strong> Solo recopilamos información personal (como nombre y correo electrónico) cuando usted nos la proporciona voluntariamente a través de nuestro formulario de contacto.</p>
-            <p><strong>2. Uso de la Información:</strong> Utilizamos sus datos exclusivamente para responder a sus consultas editoriales o de colaboración. No compartimos, vendemos ni alquilamos su información a terceros.</p>
-            <p><strong>3. Cookies y Seguimiento:</strong> Nuestro sitio puede utilizar cookies técnicas necesarias para el funcionamiento de la página web. No utilizamos herramientas de rastreo invasivas.</p>
-            <p><strong>4. Derechos del Usuario:</strong> Usted tiene derecho a solicitar el acceso, rectificación o eliminación de sus datos personales almacenados en nuestros servidores, enviando un correo a privacidad@arifiniafacturaweb.com.</p>
-        </div>
-    </div>
-
-    <div class="modal" id="termsModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2>Términos y Condiciones de Uso</h2>
-            <p><strong>1. Naturaleza del Sitio:</strong> "arifiniafacturaweb con amor" es un sitio web de carácter estrictamente informativo, periodístico y cultural. La información proporcionada tiene fines educativos sobre el Carnaval de Barranquilla.</p>
-            <br>
-            <p><strong>2. Propiedad Intelectual:</strong> Todo el contenido textual, diseño y estructura de esta página están protegidos por derechos de autor. Las imágenes utilizadas son de carácter ilustrativo o bajo licencia de uso libre o comercial correspondiente.</p>
-            <br>
-            <p><strong>3. Exención de Responsabilidad:</strong> Aunque nos esforzamos por mantener la información actualizada y correcta basada en datos históricos verificables, no garantizamos la exactitud absoluta y el uso de esta información es bajo la propia responsabilidad del lector.</p>
-            <br>
-            <p><strong>4. Modificaciones:</strong> Nos reservamos el derecho de modificar estos términos en cualquier momento. El uso continuado del sitio tras cualquier cambio constituye la aceptación de los nuevos términos.</p>
-        </div>
-    </div>
 
     <script>
         // Efecto visual en el header al hacer scroll
@@ -503,7 +435,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Ajuste para el header fijo
+                        top: targetElement.offsetTop - 80, 
                         behavior: 'smooth'
                     });
                 }
@@ -513,28 +445,9 @@
         // Prevención de envío del formulario para la demo
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Gracias por su mensaje. Nuestro equipo editorial se pondrá en contacto pronto.');
+            alert('Gracias por su mensaje. Nos pondremos en contacto pronto a través del correo oficial.');
             this.reset();
         });
-
-        // Lógica de Modales para Legales (Obligatorio Google Ads)
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevenir scroll de fondo
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restaurar scroll
-        }
-
-        // Cerrar modal al hacer clic fuera del contenido
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-                document.body.style.overflow = 'auto';
-            }
-        }
     </script>
 </body>
 </html>
